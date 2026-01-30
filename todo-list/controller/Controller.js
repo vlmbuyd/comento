@@ -2,8 +2,8 @@ import Todo from '../model/Todo.js';
 import View from '../view/View.js';
 
 export default class Controller {
-  constructor(todos) {
-    this.todos = todos;
+  constructor() {
+    this.todos = [];
     this.todoListEl = document.querySelector('.todo-list');
     this.init();
   }
