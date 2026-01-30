@@ -8,11 +8,11 @@ export default class Controller {
     this.addBtnEl = document.querySelector('.todo__add-button');
     this.inputEl = document.querySelector('.todo__input');
     this.formEl = document.querySelector('.todo__form');
-    this.init();
+    this.view = new View();
   }
 
   init() {
-    View.render(this.todoListEl, this.todos); // 초기 렌더링
+    this.view.render(this.todos); // 초기 렌더링
     this.todoListEl.addEventListener('click', (e) => this.handleClickCard(e));
     this.addBtnEl.addEventListener('click', (e) => this.handleClickAddBtn(e));
     this.formEl.addEventListener('submit', (e) => this.handleSubmit(e));
@@ -28,7 +28,7 @@ export default class Controller {
     if (actionType) {
       new Todo(this.todos, btnEl, actionType);
 
-      View.render(this.todoListEl, this.todos);
+      this.view.render(this.todos);
     }
   }
 
@@ -58,6 +58,6 @@ export default class Controller {
     this.formEl.classList.toggle('open');
     this.inputEl.value = '';
 
-    View.render(this.todoListEl, this.todos);
+    this.view.render(this.todos);
   }
 }

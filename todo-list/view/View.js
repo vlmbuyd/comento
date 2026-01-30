@@ -1,19 +1,26 @@
 import { formatDate } from '../utils/dateUitls.js';
 
 export default class View {
-  static render(todoListEl, todos) {
-    const container = todoListEl.closest('.content-wrapper');
+  constructor() {
+    this.todoListEl = document.querySelector('.todo-list');
+    this.dateEl = document.querySelector('.date-wrapper__full-date');
+    this.contentWrapper = document.querySelector('.content-wrapper');
+  }
+
+  render(todos) {
+    this.renderDate();
+
     const isEmpty = todos.length === 0;
-    View.toggleEmptyState(container, isEmpty);
+    this.toggleEmptyState(isEmpty);
 
-    todoListEl.innerHTML = View.generateTodoLiHtml(todos);
+    this.todoListEl.innerHTML = this.generateTodoLiHtml(todos);
   }
 
-  static toggleEmptyState(container, isEmpty) {
-    container.classList.toggle('is-empty', isEmpty);
+  toggleEmptyState(isEmpty) {
+    this.contentWrapper.classList.toggle('is-empty', isEmpty);
   }
 
-  static generateTodoLiHtml(todos) {
+  generateTodoLiHtml(todos) {
     if (todos.length === 0) return '';
 
     return todos
@@ -35,10 +42,8 @@ export default class View {
       .join('');
   }
 
-  static renderDate() {
+  renderDate() {
     const formattedDateString = formatDate();
-
-    document.querySelector('.date-wrapper__full-date').textContent =
-      formattedDateString;
+    this.dateEl.textContent = formattedDateString;
   }
 }
