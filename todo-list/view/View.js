@@ -7,6 +7,10 @@ export default class View {
     this.contentWrapper = document.querySelector('.content-wrapper');
   }
 
+  /**
+   * 메인 컨텐츠 렌더링
+   * @param {*} todos - 투두 리스트 배열
+   */
   render(todos) {
     this.renderDate();
 
@@ -16,10 +20,19 @@ export default class View {
     this.todoListEl.innerHTML = this.generateTodoLiHtml(todos);
   }
 
+  /**
+   * 투두 리스트 비어있는 상태 토글
+   * @param {*} isEmpty - 비어있는 상태 여부
+   */
   toggleEmptyState(isEmpty) {
     this.contentWrapper.classList.toggle('is-empty', isEmpty);
   }
 
+  /**
+   * 투두 리스트 li HTML 생성
+   * @param {*} todos - 투두 리스트 배열
+   * @returns - 투두 리스트 li HTML 문자열
+   */
   generateTodoLiHtml(todos) {
     if (todos.length === 0) return '';
 
@@ -42,6 +55,9 @@ export default class View {
       .join('');
   }
 
+  /**
+   * 현재 날짜 렌더링
+   */
   renderDate() {
     const formattedDateString = formatDate();
     this.dateEl.textContent = formattedDateString;

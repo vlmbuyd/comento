@@ -11,6 +11,9 @@ export default class Controller {
     this.view = new View();
   }
 
+  /**
+   * 초기 렌더링 및 이벤트 핸들러 등록
+   */
   init() {
     this.view.render(this.todos); // 초기 렌더링
     this.todoListEl.addEventListener('click', (e) => this.handleClickCard(e));
@@ -18,6 +21,9 @@ export default class Controller {
     this.formEl.addEventListener('submit', (e) => this.handleSubmit(e));
   }
 
+  /**
+   * 투두 카드 클릭 핸들러
+   */
   handleClickCard(e) {
     const btnEl = e.target.closest('button');
 
@@ -32,6 +38,9 @@ export default class Controller {
     }
   }
 
+  /**
+   * 투두 추가 버튼 클릭 핸들러
+   */
   handleClickAddBtn(e) {
     const form = this.addBtnEl.closest('form');
 
