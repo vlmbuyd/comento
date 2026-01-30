@@ -109,6 +109,19 @@ main .content-wrapper {
   gap: 27px;
   width: 100%;
 }
+main .content-wrapper .empty {
+  display: none;
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #7a7777;
+}
+main .content-wrapper.is-empty .empty {
+  display: block;
+}
+main .content-wrapper.is-empty .todo-list {
+  display: none;
+}
 main .todo-list {
   display: flex;
   flex-direction: column;

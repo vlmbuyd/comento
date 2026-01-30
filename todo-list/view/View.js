@@ -2,8 +2,23 @@ import { formatDate } from '../utils/dateUitls.js';
 
 export default class View {
   static render(todoListEl, todos) {
-    const htmlString = todos.map(
-      (todo) => `
+    const container = todoListEl.closest('.content-wrapper');
+    const isEmpty = todos.length === 0;
+    View.toggleEmptyState(container, isEmpty);
+
+    todoListEl.innerHTML = View.generateTodoLiHtml(todos);
+  }
+
+  static toggleEmptyState(container, isEmpty) {
+    container.classList.toggle('is-empty', isEmpty);
+  }
+
+  static generateTodoLiHtml(todos) {
+    if (todos.length === 0) return '';
+
+    return todos
+      .map(
+        (todo) => `
               <li class="todo ${todo.done ? 'done' : ''}" data-id="${todo.id}">
                   <button type="button" class="icon-button todo__status-button" data-type="toggle">
                     <img src="./assets/${
@@ -16,9 +31,8 @@ export default class View {
                   </button>
               </li>
               `
-    );
-
-    todoListEl.innerHTML = htmlString.join('');
+      )
+      .join('');
   }
 
   static renderDate() {

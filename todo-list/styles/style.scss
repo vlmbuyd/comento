@@ -53,6 +53,23 @@ main {
     @include column-flex(start, start);
     gap: 27px;
     width: 100%;
+
+    .empty {
+      display: none;
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: 400;
+      color: $text-disabled;
+    }
+
+    &.is-empty {
+      .empty {
+        display: block;
+      }
+      .todo-list {
+        display: none;
+      }
+    }
   }
 
   .todo-list {
