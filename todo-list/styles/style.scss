@@ -8,7 +8,6 @@ body {
 }
 
 .container {
-  position: relative;
   width: 430px;
   height: 100vh;
   border-radius: 30px;
@@ -30,10 +29,10 @@ header {
 }
 
 main {
-  @include column-flex(start, start);
-  gap: 27px;
+  @include column-flex(between, start);
   flex: 1;
-  padding: 50px 24px 0 24px;
+  height: calc(100% - 130px);
+  padding: 50px 24px;
 
   .date-wrapper {
     @include column-flex(start, start);
@@ -48,6 +47,12 @@ main {
       font-weight: 400;
       color: $text-disabled;
     }
+  }
+
+  .content-wrapper {
+    @include column-flex(start, start);
+    gap: 27px;
+    width: 100%;
   }
 
   .todo-list {
@@ -85,13 +90,53 @@ main {
   }
 }
 
-.todo__add-button {
-  position: absolute;
-  bottom: 50px;
-  right: 24px;
-  @include flex(center, center);
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  background-color: $color-primary;
+.todo__form-wrapper {
+  width: 100%;
+  @include flex(end, center);
+
+  .todo__form {
+    @include flex(between, center);
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: width 0.3s ease, background-color 0.3s ease,
+      border-radius 0.3s ease;
+
+    .todo__input {
+      display: none;
+      padding-left: 12px;
+      transition: width 0.3s ease, opacity 0.3s ease;
+      color: $text-primary;
+
+      &::placeholder {
+        color: $text-primary;
+        font-size: 16px;
+      }
+    }
+
+    .todo__add-button {
+      @include flex(center, center);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: $color-primary;
+    }
+
+    &.open {
+      width: 100%;
+      border-radius: 12px;
+      background-color: #8899a6;
+
+      .todo__input {
+        display: block;
+        flex: 1;
+        transition: width 0.3s ease, opacity 0.3s ease;
+      }
+
+      .todo__add-button {
+        background-color: transparent;
+      }
+    }
+  }
 }

@@ -11,17 +11,33 @@
       <header><h1>Todo List</h1></header>
 
       <main>
-        <div class="date-wrapper">
-          <strong class="date-wrapper__day">Today</strong>
-          <span class="date-wrapper__full-date"></span>
+        <div class="content-wrapper">
+          <div class="date-wrapper">
+            <strong class="date-wrapper__day">Today</strong>
+            <span class="date-wrapper__full-date"></span>
+          </div>
+
+          <ul class="todo-list"></ul>
         </div>
 
-        <ul class="todo-list"></ul>
-      </main>
+        <div class="todo__form-wrapper">
+          <form class="todo__form">
+            <input
+              type="text"
+              class="todo__input"
+              placeholder="할 일을 작성해주세요."
+            />
 
-      <button type="button" class="icon-button todo__add-button">
-        <img src="./assets/plus.svg" alt="todo-add-button" />
-      </button>
+            <button
+              type="submit"
+              class="icon-button todo__add-button"
+              data-type="add"
+            >
+              <img src="./assets/plus.svg" alt="todo-add-button" />
+            </button>
+          </form>
+        </div>
+      </main>
     </div>
 
     <script type="module" src="./app.js"></script>

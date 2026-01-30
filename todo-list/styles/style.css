@@ -37,6 +37,14 @@ a {
   color: inherit;
 }
 
+input,
+textarea {
+  border: none;
+  outline: none;
+  background: none;
+  resize: none;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -47,7 +55,6 @@ body {
 }
 
 .container {
-  position: relative;
   width: 430px;
   height: 100vh;
   border-radius: 30px;
@@ -72,11 +79,11 @@ header h1 {
 main {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 27px;
   flex: 1;
-  padding: 50px 24px 0 24px;
+  height: calc(100% - 130px);
+  padding: 50px 24px;
 }
 main .date-wrapper {
   display: flex;
@@ -93,6 +100,14 @@ main .date-wrapper__full-date {
   font-size: 14px;
   font-weight: 400;
   color: #7a7777;
+}
+main .content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 27px;
+  width: 100%;
 }
 main .todo-list {
   display: flex;
@@ -131,17 +146,53 @@ main .icon-button {
   cursor: pointer;
 }
 
-.todo__add-button {
-  position: absolute;
-  bottom: 50px;
-  right: 24px;
+.todo__form-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.todo__form-wrapper .todo__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: width 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+}
+.todo__form-wrapper .todo__form .todo__input {
+  display: none;
+  padding-left: 12px;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  color: #f5f5f5;
+}
+.todo__form-wrapper .todo__form .todo__input::placeholder {
+  color: #f5f5f5;
+  font-size: 16px;
+}
+.todo__form-wrapper .todo__form .todo__add-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-color: #0ab6ab;
+}
+.todo__form-wrapper .todo__form.open {
+  width: 100%;
+  border-radius: 12px;
+  background-color: #8899a6;
+}
+.todo__form-wrapper .todo__form.open .todo__input {
+  display: block;
+  flex: 1;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+.todo__form-wrapper .todo__form.open .todo__add-button {
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=style.css.map */
