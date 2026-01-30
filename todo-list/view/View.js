@@ -1,4 +1,4 @@
-import { formatDate } from '../utils/dateUitls.js';
+import { formatDate } from '../utils/dateUtils.js';
 
 export default class View {
   constructor() {
@@ -9,7 +9,7 @@ export default class View {
 
   /**
    * 메인 컨텐츠 렌더링
-   * @param {*} todos - 투두 리스트 배열
+   * @param {Array} todos - 투두 리스트 배열
    */
   render(todos) {
     this.renderDate();
@@ -22,7 +22,7 @@ export default class View {
 
   /**
    * 투두 리스트 비어있는 상태 토글
-   * @param {*} isEmpty - 비어있는 상태 여부
+   * @param {boolean} isEmpty - 비어있는 상태 여부
    */
   toggleEmptyState(isEmpty) {
     this.contentWrapper.classList.toggle('is-empty', isEmpty);
@@ -30,7 +30,7 @@ export default class View {
 
   /**
    * 투두 리스트 li HTML 생성
-   * @param {*} todos - 투두 리스트 배열
+   * @param {Array} todos - 투두 리스트 배열
    * @returns - 투두 리스트 li HTML 문자열
    */
   generateTodoLiHtml(todos) {
