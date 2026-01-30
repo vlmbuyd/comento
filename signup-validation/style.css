@@ -37,4 +37,12 @@ a {
   color: inherit;
 }
 
+input,
+textarea {
+  border: none;
+  outline: none;
+  background: none;
+  resize: none;
+}
+
 /*# sourceMappingURL=style.css.map */
