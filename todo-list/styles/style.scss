@@ -124,6 +124,7 @@ main {
       display: none;
       padding-left: 12px;
       transition: width 0.3s ease, opacity 0.3s ease;
+      font-size: 18px;
       color: $text-primary;
 
       &::placeholder {
