@@ -34,8 +34,6 @@ export default class View {
    * @returns - 투두 리스트 li HTML 문자열
    */
   generateTodoLiHtml(todos) {
-    if (todos.length === 0) return '';
-
     return todos
       .map(
         (todo) => `
